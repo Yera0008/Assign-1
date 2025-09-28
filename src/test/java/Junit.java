@@ -34,7 +34,6 @@ class AlgorithmTest {
 
     @Test
     void testClosestPairValidation() {
-        // Генерируем небольшие наборы точек для проверки против brute-force
         for (int n = 10; n <= 100; n += 10) {
             Point[] points = generateRandomPoints(n);
 
