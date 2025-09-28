@@ -46,10 +46,11 @@ Master theorem → Θ(n log n).
 Depth: Θ(log n).
 Strip step ≤ 7 comparisons per point.
 
-![zvbn.png](img.png)
+![zbvn.png](image.png)
 
 Summary:
 Measurements align with theoretical results:
 MergeSort and QuickSort ~ Θ(n log n).
 Select ~ Θ(n), but constants large.
 Closest Pair ~ Θ(n log n).
+
