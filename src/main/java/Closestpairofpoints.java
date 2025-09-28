@@ -54,7 +54,6 @@ public class Closestpairofpoints {
         int mid = n / 2;
         Point midPoint = Px[mid];
 
-        // Разделяем Py правильно (по x-координате)
         List<Point> PylList = new ArrayList<>();
         List<Point> PyrList = new ArrayList<>();
         for (Point p : Py) {
@@ -75,7 +74,6 @@ public class Closestpairofpoints {
 
         double d = Math.min(dl, dr);
 
-        // Формируем "полосу"
         List<Point> strip = new ArrayList<>();
         for (Point p : Py) {
             if (Math.abs(p.x - midPoint.x) < d) {
