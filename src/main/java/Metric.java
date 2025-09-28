@@ -61,4 +61,15 @@ public class Metric {
     public static int getComparisons() { return get().comparisons; }
     public static int getAllocations() { return get().allocations; }
     public static long getDuration() { return get().duration; }
+
+    public static void writeCSV(String algo, int n) {
+        try (FileWriter writer = new FileWriter("results.csv", true)) {
+            writer.write(algo + "," + n + "," + getDuration()/1000 + "," +
+                    getMaxRecursionDepth() + "," +
+                    getComparisons() + "," +
+                    getAllocations() + "\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
