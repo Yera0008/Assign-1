@@ -10,7 +10,7 @@ This project implements and analyzes several classical algorithms with runtime m
 
 The project is written in **Java 17**, built with **Maven**, and tested with **JUnit 5**.
 ## 📂 Project Structure
-Assign-1
+### Assign-1
 - │── src
 - │ ├── main/java/Mergesort.java
 - │ │        │──/Quicksort.java
@@ -22,25 +22,25 @@ Assign-1
 - │── pom.xml
 - │── README.md
 
-MergeSort:
+### MergeSort:
 Recurrence: T(n) = 2T(n/2) + Θ(n) (divide + merge).
 Solution by Master Theorem → Θ(n log n).
 Depth: Θ(log n).
 Cutoff to insertion sort reduces constants.
 
-QuickSort:
+### QuickSort:
 Recurrence: T(n) = T(k) + T(n-k-1) + Θ(n) (random pivot).
 Expected runtime: Θ(n log n). Worst case: Θ(n²).
 Expected depth: Θ(log n); worst-case depth: Θ(n).
 Smaller-first recursion ensures stack = O(log n).
 
-Deterministic Select:
+### Deterministic Select:
 Recurrence: T(n) = T(n/5) + T(7n/10) + Θ(n).
 Solved by Akra–Bazzi → Θ(n).
 Depth: logarithmic.
 Guarantees worst-case linear runtime.
 
-Closest Pair of Points:
+### Closest Pair of Points:
 Recurrence: T(n) = 2T(n/2) + Θ(n) (divide + strip scan).
 Master theorem → Θ(n log n).
 Depth: Θ(log n).
@@ -48,11 +48,31 @@ Strip step ≤ 7 comparisons per point.
 
 ![image.png](zvbn.png)
 
-Summary:
+### Summary:
 Measurements align with theoretical results:
 MergeSort and QuickSort ~ Θ(n log n).
 Select ~ Θ(n), but constants large.
 Closest Pair ~ Θ(n log n).
 
+## GitHub Workflow
+### Branches:
+- main — stable releases (v1.0)
+- feature/mergesort
+- feature/quicksort
+- feature/select
+- feature/closest
+- feature/metrics
 
-
+### Commit Storyline
+- init: maven, junit5, ci, readme
+- feat(metrics): counters, depth tracker, CSV writer
+- feat(mergesort): baseline + reuse buffer + cutoff + tests
+- feat(quicksort): smaller-first recursion, randomized pivot + tests
+- refactor(util): partition, swap, shuffle, guards
+- feat(select): deterministic select (MoM5) + tests
+- feat(closest): divide-and-conquer implementation + tests
+- feat(cli): parse args, run algos, emit CSV
+- bench(jmh): harness for select vs sort
+- docs(report): master cases & AB intuition, initial plots
+- fix: edge cases (duplicates, tiny arrays)
+- release: v1.0
